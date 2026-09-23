@@ -1,5 +1,13 @@
 # Change Log
 
+## [1.1.3.1] (the-achieve-project fork)
+
+- Updated detection rules and fixtures from upstream on 2026-09-23 (matomo-org/device-detector@aa4f41b)
+- Synced OS names, families, desktop OSes and Fire/Lineage OS version mappings; new `rake update_os_tables` task regenerates them from upstream
+- Fix loading device regexes with numeric brand keys (e.g. `8848`)
+- `MATOMO_CHECKOUT` env var overrides the upstream checkout location for the update tasks
+- Known gap: 199 of 43,178 upstream fixtures still fail (feature-phone/TV typing, client-hint-only detection); these need parser logic ports
+
 ## [1.1.3]
 
 - Updated detection rules from upstream on 2024-06-25 ([#124](https://github.com/podigee/device_detector/pull/124))

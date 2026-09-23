@@ -49,18 +49,19 @@ class DeviceDetector
       end
     end
 
-    # https://github.com/matomo-org/device-detector/blob/75d88bbefb0182f9207c9f48dc39b1bc8c7cc43f/Parser/OperatingSystem.php#L286-L288
+    # https://github.com/matomo-org/device-detector/blob/aa4f41b77058f32c19237d36b727f487a7f8c91b/Parser/OperatingSystem.php
     DESKTOP_OSS = Set.new(
       [
-        'AmigaOS', 'IBM', 'GNU/Linux', 'Mac', 'Unix', 'Windows', 'BeOS', 'Chrome OS', 'Chromium OS'
+        'AmigaOS', 'IBM', 'GNU/Linux', 'Mac', 'Unix', 'Windows', 'BeOS', 'Chrome OS', 'OpenVMS'
       ]
     )
 
     # OS short codes mapped to long names
-    # https://github.com/matomo-org/device-detector/blob/75d88bbefb0182f9207c9f48dc39b1bc8c7cc43f/Parser/OperatingSystem.php#L42-L220
+    # https://github.com/matomo-org/device-detector/blob/aa4f41b77058f32c19237d36b727f487a7f8c91b/Parser/OperatingSystem.php
     OPERATING_SYSTEMS = {
       'AIX' => 'AIX',
       'AND' => 'Android',
+      'AGO' => 'Android Go',
       'ADR' => 'Android TV',
       'ALP' => 'Alpine Linux',
       'AMZ' => 'Amazon Linux',
@@ -68,18 +69,22 @@ class DeviceDetector
       'ARM' => 'Armadillo OS',
       'ARO' => 'AROS',
       'ATV' => 'tvOS',
+      'ARC' => 'ArcaOS',
       'ARL' => 'Arch Linux',
       'AOS' => 'AOSC OS',
       'ASP' => 'ASPLinux',
+      'AZU' => 'Azure Linux',
       'BTR' => 'BackTrack',
       'SBA' => 'Bada',
       'BYI' => 'Baidu Yi',
       'BEO' => 'BeOS',
       'BLB' => 'BlackBerry OS',
       'QNX' => 'BlackBerry Tablet OS',
+      'PAN' => 'blackPanther OS',
       'BOS' => 'Bliss OS',
       'BMP' => 'Brew',
       'BSN' => 'BrightSignOS',
+      'BS1' => 'BSD',
       'CAI' => 'Caixa Mágica',
       'CES' => 'CentOS',
       'CST' => 'CentOS Stream',
@@ -88,18 +93,22 @@ class DeviceDetector
       'COS' => 'Chrome OS',
       'CRS' => 'Chromium OS',
       'CHN' => 'China OS',
+      'CON' => 'Contiki',
+      'COL' => 'Coolita OS',
       'CYN' => 'CyanogenMod',
       'DEB' => 'Debian',
       'DEE' => 'Deepin',
       'DFB' => 'DragonFly',
       'DVK' => 'DVKBuntu',
       'ELE' => 'ElectroBSD',
+      'ELM' => 'elementary OS',
       'EUL' => 'EulerOS',
       'FED' => 'Fedora',
       'FEN' => 'Fenix',
       'FOS' => 'Firefox OS',
       'FIR' => 'Fire OS',
       'FOR' => 'Foresight Linux',
+      'FRT' => 'FortiOS',
       'FRE' => 'Freebox',
       'BSD' => 'FreeBSD',
       'FRI' => 'FRITZ!OS',
@@ -108,6 +117,7 @@ class DeviceDetector
       'GNT' => 'Gentoo',
       'GNX' => 'GENIX',
       'GEO' => 'GEOS',
+      'GHO' => 'GhostBSD',
       'GNS' => 'gNewSense',
       'GRI' => 'GridOS',
       'GTV' => 'Google TV',
@@ -115,8 +125,10 @@ class DeviceDetector
       'HAI' => 'Haiku OS',
       'IPA' => 'iPadOS',
       'HAR' => 'HarmonyOS',
+      'HNX' => 'HarmonyOS NEXT',
       'HAS' => 'HasCodingOS',
       'HEL' => 'HELIX OS',
+      'HYP' => 'HyperOS',
       'IRI' => 'IRIX',
       'INF' => 'Inferno',
       'JME' => 'Java ME',
@@ -125,13 +137,17 @@ class DeviceDetector
       'KAL' => 'Kali',
       'KAN' => 'Kanotix',
       'KIN' => 'KIN OS',
+      'KOB' => 'KoboOS',
+      'KOL' => 'KolibriOS',
       'KNO' => 'Knoppix',
       'KTV' => 'KreaTV',
       'KBT' => 'Kubuntu',
       'LIN' => 'GNU/Linux',
+      'LEA' => 'LeafOS',
       'LND' => 'LindowsOS',
       'LNS' => 'Linspire',
       'LEN' => 'Lineage OS',
+      'LPU' => 'Linpus',
       'LIR' => 'Liri OS',
       'LOO' => 'Loongnix',
       'LBT' => 'Lubuntu',
@@ -143,12 +159,16 @@ class DeviceDetector
       'MAG' => 'Mageia',
       'MDR' => 'Mandriva',
       'SMG' => 'MeeGo',
+      'MET' => 'Meta Horizon',
+      'MNX' => 'MINIX',
+      'MOS' => 'Mocor OS',
       'MCD' => 'MocorDroid',
       'MON' => 'moonOS',
       'EZX' => 'Motorola EZX',
       'MIN' => 'Mint',
       'MLD' => 'MildWild',
       'MOR' => 'MorphOS',
+      'MYO' => 'MyOS',
       'NBS' => 'NetBSD',
       'MTK' => 'MTK / Nucleus',
       'MRE' => 'MRE',
@@ -157,22 +177,28 @@ class DeviceDetector
       'WII' => 'Nintendo',
       'NDS' => 'Nintendo Mobile',
       'NOV' => 'Nova',
+      'NTX' => 'NuttX',
       'OS2' => 'OS/2',
       'T64' => 'OSF1',
+      'OSS' => 'openSUSE',
       'OBS' => 'OpenBSD',
+      'OHS' => 'OpenHarmony',
       'OVS' => 'OpenVMS',
       'OVZ' => 'OpenVZ',
       'OWR' => 'OpenWrt',
       'OTV' => 'Opera TV',
       'ORA' => 'Oracle Linux',
       'ORD' => 'Ordissimo',
+      'ORS' => 'Orsay',
       'PAR' => 'Pardus',
       'PCL' => 'PCLinuxOS',
       'PIC' => 'PICO OS',
+      'PLN' => 'Plan 9',
       'PLA' => 'Plasma Mobile',
       'PSP' => 'PlayStation Portable',
       'PS3' => 'PlayStation',
       'PVE' => 'Proxmox VE',
+      'PUF' => 'Puffin OS',
       'PUR' => 'PureOS',
       'QTP' => 'Qtopia',
       'PIO' => 'Raspberry Pi OS',
@@ -181,6 +207,7 @@ class DeviceDetector
       'RST' => 'Red Star',
       'RED' => 'RedOS',
       'REV' => 'Revenge OS',
+      'RIS' => 'risingOS',
       'ROS' => 'RISC OS',
       'ROC' => 'Rocky Linux',
       'ROK' => 'Roku OS',
@@ -190,6 +217,7 @@ class DeviceDetector
       'RRS' => 'Resurrection Remix OS',
       'REX' => 'REX',
       'RZD' => 'RazoDroiD',
+      'RXT' => 'RTOS & Next',
       'SAB' => 'Sabayon',
       'SSE' => 'SUSE',
       'SAF' => 'Sailfish OS',
@@ -198,8 +226,10 @@ class DeviceDetector
       'SER' => 'SerenityOS',
       'SIR' => 'Sirin OS',
       'SLW' => 'Slackware',
+      'SMA' => 'Smartisan OS',
       'SOS' => 'Solaris',
       'SBL' => 'Star-Blade OS',
+      'STM' => 'SteamOS',
       'SYL' => 'Syllable',
       'SYM' => 'Symbian',
       'SYS' => 'Symbian OS',
@@ -207,7 +237,9 @@ class DeviceDetector
       'S60' => 'Symbian OS Series 60',
       'SY3' => 'Symbian^3',
       'TEN' => 'TencentOS',
+      'THN' => 'ThinOS',
       'TDX' => 'ThreadX',
+      'TIT' => 'Titan OS',
       'TIZ' => 'Tizen',
       'TIV' => 'TiVo OS',
       'TOS' => 'TmaxOS',
@@ -215,7 +247,9 @@ class DeviceDetector
       'UBT' => 'Ubuntu',
       'ULT' => 'ULTRIX',
       'UOS' => 'UOS',
+      'VEG' => 'Vega OS',
       'VID' => 'VIDAA',
+      'VIZ' => 'ViziOS',
       'WAS' => 'watchOS',
       'WER' => 'Wear OS',
       'WTV' => 'WebTV',
@@ -229,6 +263,8 @@ class DeviceDetector
       'WPO' => 'WoPhone',
       'XBX' => 'Xbox',
       'XBT' => 'Xubuntu',
+      'YAS' => 'YaOS',
+      'YOD' => 'YodaOS-Master',
       'YNS' => 'YunOS',
       'ZEN' => 'Zenwalk',
       'ZOR' => 'ZorinOS',
@@ -244,22 +280,47 @@ class DeviceDetector
 
     APPLE_OS_NAMES = Set.new(%w[iPadOS tvOS watchOS iOS Mac]).freeze
 
-    # https://github.com/matomo-org/device-detector/blob/75d88bbefb0182f9207c9f48dc39b1bc8c7cc43f/Parser/OperatingSystem.php#L227-L269
+    # https://github.com/matomo-org/device-detector/blob/aa4f41b77058f32c19237d36b727f487a7f8c91b/Parser/OperatingSystem.php
     OS_FAMILIES = {
-      'Android' => %w[ AND CYN FIR REM RZD MLD MCD YNS GRI HAR
-                       ADR CLR BOS REV LEN SIR RRS WER PIC ARM
-                       HEL BYI],
-      'AmigaOS' => %w[AMG MOR ARO],
-      'BlackBerry' => %w[BLB QNX],
-      'Brew' => ['BMP'],
-      'BeOS' => %w[BEO HAI],
-      'Chrome OS' => %w[COS CRS FYD SEE],
-      'Firefox OS' => %w[FOS KOS],
-      'Gaming Console' => %w[WII PS3],
-      'Google TV' => ['GTV'],
-      'IBM' => ['OS2'],
-      'iOS' => %w[IOS ATV WAS IPA],
-      'RISC OS' => ['ROS'],
+      'Android' => %w[
+        AND CYN FIR REM RZD MLD MCD YNS GRI HAR
+        ADR CLR BOS REV LEN SIR RRS WER PIC ARM
+        HEL BYI RIS PUF LEA MET SMA AGO HYP MYO
+        YOD YAS
+      ],
+      'AmigaOS' => %w[
+        AMG MOR ARO
+      ],
+      'BlackBerry' => %w[
+        BLB QNX
+      ],
+      'Brew' => %w[
+        BMP
+      ],
+      'BeOS' => %w[
+        BEO HAI
+      ],
+      'Chrome OS' => %w[
+        COS CRS FYD SEE
+      ],
+      'Firefox OS' => %w[
+        FOS KOS
+      ],
+      'Gaming Console' => %w[
+        WII PS3
+      ],
+      'Google TV' => %w[
+        GTV
+      ],
+      'IBM' => %w[
+        OS2 ARC
+      ],
+      'iOS' => %w[
+        IOS ATV WAS IPA
+      ],
+      'RISC OS' => %w[
+        ROS
+      ],
       'GNU/Linux' => %w[
         LIN ARL DEB KNO MIN UBT KBT XBT LBT FED
         RHT VLN MDR GNT SAB SLW SSE CES BTR SAF
@@ -269,30 +330,60 @@ class DeviceDetector
         NOV ROU ZOR RED KAL ORA VID TIV BSN RAS
         UOS PIO FRI LIR WEB SER ASP AOS LOO EUL
         SCI ALP CLO ROC OVZ PVE RST EZX GNS JOL
-        TUR QTP WPO
+        TUR QTP WPO PAN VIZ AZU COL OSS ELM LPU
+        KOB FRT
       ],
-      'Mac' => ['MAC'],
-      'Mobile Gaming Console' => %w[PSP NDS XBX],
-      'OpenVMS' => ['OVS'],
-      'Real-time OS' => %w[MTK TDX MRE JME REX],
-      'Other Mobile' => %w[WOS POS SBA TIZ SMG MAE LUN GEO],
-      'Symbian' => %w[SYM SYS SY3 S60 S40],
+      'Mac' => %w[
+        MAC
+      ],
+      'Mobile Gaming Console' => %w[
+        PSP NDS XBX STM
+      ],
+      'OpenHarmony' => %w[
+        OHS HNX
+      ],
+      'OpenVMS' => %w[
+        OVS
+      ],
+      'Real-time OS' => %w[
+        MTK TDX MRE JME REX RXT KOL MOS NTX
+      ],
+      'Other Mobile' => %w[
+        WOS POS SBA TIZ SMG MAE LUN GEO CON
+      ],
+      'Symbian' => %w[
+        SYM SYS SY3 S60 S40
+      ],
       'Unix' => %w[
         SOS AIX HPX BSD NBS OBS DFB SYL IRI T64
-        INF ELE GNX ULT NWS NXT SBL
+        INF ELE GNX ULT NWS NXT SBL BS1 GHO PLN
+        MNX THN
       ],
-      'WebTV' => ['WTV'],
-      'Windows' => ['WIN'],
-      'Windows Mobile' => %w[WPH WMO WCE WRT WIO KIN],
-      'Other Smart TV' => ['WHS']
+      'WebTV' => %w[
+        WTV
+      ],
+      'Windows' => %w[
+        WIN
+      ],
+      'Windows Mobile' => %w[
+        WPH WMO WCE WRT WIO KIN
+      ],
+      'Other Smart TV' => %w[
+        WHS TIT ORS VEG
+      ]
     }.freeze
 
     FAMILY_TO_OS = OS_FAMILIES.each_with_object({}) do |(family, oss), h|
       oss.each { |os| h[os] = family }
     end.freeze
 
-    # https://github.com/matomo-org/device-detector/blob/75d88bbefb0182f9207c9f48dc39b1bc8c7cc43f/Parser/OperatingSystem.php#L295-L308
+    # https://github.com/matomo-org/device-detector/blob/aa4f41b77058f32c19237d36b727f487a7f8c91b/Parser/OperatingSystem.php
     FIRE_OS_VERSION_MAPPING = {
+      '16' => '16',
+      '15' => '16',
+      '14' => '14',
+      '13' => '14',
+      '12' => '14',
       '11' => '8',
       '10' => '8',
       '9' => '7',
@@ -304,11 +395,14 @@ class DeviceDetector
       '4.0.3' => '3',
       '4.0.2' => '3',
       '4' => '2',
-      '2' => '1',
+      '2' => '1'
     }.freeze
 
-    # https://github.com/matomo-org/device-detector/blob/75d88bbefb0182f9207c9f48dc39b1bc8c7cc43f/Parser/OperatingSystem.php#L315-L337
+    # https://github.com/matomo-org/device-detector/blob/aa4f41b77058f32c19237d36b727f487a7f8c91b/Parser/OperatingSystem.php
     LINEAGE_OS_VERSION_MAPPING = {
+      '17' => '24',
+      '16' => '23',
+      '15' => '22',
       '14' => '21',
       '13' => '20.0',
       '12.1' => '19.1',

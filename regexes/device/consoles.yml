@@ -26,9 +26,13 @@ Microsoft:
       model: 'Xbox 360'
 
 Nintendo:
-  regex: 'Nintendo (([3]?DS[i]?)|Wii[U]?|Switch|GameBoy)'
+  regex: 'Nintendo (([3]?DS[i]?)|Wii[U]?|Switch|GameBoy)|Switch(?: Lite| OLED)?\)'
   device: 'console'
-  model: '$1'
+  models:
+    - regex: 'Nintendo (([3]?DS[i]?)|Wii[U]?|Switch(?: Lite| OLED)|GameBoy)'
+      model: '$1'
+    - regex: '(Switch(?: Lite| OLED)?)'
+      model: '$1'
 
 OUYA:
   regex: 'OUYA'
@@ -69,6 +73,20 @@ Sony:
 
 # Retroid Pocket (www.goretroid.com)
 Retroid Pocket:
-  regex: 'Retroid Pocket 2(?:Plus|\+)'
+  regex: 'Retroid Pocket'
   device: 'console'
-  model: '2 Plus'
+  models:
+    - regex: 'Pocket ([23]) ?(?:Plus|\+)'
+      model: '$1 Plus'
+    - regex: 'Pocket 4 Pro'
+      model: '4 Pro'
+    - regex: 'Pocket ([235])'
+      model: '$1'
+
+# Valve Corporation (https://www.steamdeck.com/en/)
+Valve Corporation:
+  regex: 'Steam'
+  device: 'console'
+  models:
+    - regex: 'SteamDeck'
+      model: 'Steam Deck'

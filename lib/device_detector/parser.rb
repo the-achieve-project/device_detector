@@ -80,7 +80,9 @@ class DeviceDetector
     end
 
     def rewrite_device_object!(object)
-      object.map { |key, value| [key, { 'regex_name' => key }.merge!(value)] }.to_h
+      # YAML reads numeric brand keys (e.g. 8848) as Integers; symbolize_keys!
+      # only walks String keys, so stringify them here.
+      object.map { |key, value| [key.to_s, { 'regex_name' => key.to_s }.merge!(value)] }.to_h
     end
 
     def symbolize_keys!(object)

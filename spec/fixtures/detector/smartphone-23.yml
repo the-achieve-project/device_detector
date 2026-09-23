@@ -367,7 +367,7 @@
     platform: ""
   client:
     type: browser
-    name: MIUI Browser
+    name: Mi Browser
     version: 8.7.7
     engine: WebKit
     engine_version: "537.36"
@@ -376,7 +376,7 @@
     brand: Xiaomi
     model: Mi 5X
   os_family: Android
-  browser_family: Android Browser
+  browser_family: Chrome
 -
   user_agent: Mozilla/5.0 (Linux; Android 4.2.2; SH-01FDQ) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.99 Mobile Safari/537.36
   os:
@@ -3541,8 +3541,8 @@
     engine_version: 67.0.3396.87
   device:
     type: smartphone
-    brand: P-UP
-    model: Mode 1 MD-01P
+    brand: Mode 1
+    model: MD-01P
   os_family: Android
   browser_family: Chrome
 -
@@ -3686,7 +3686,7 @@
   device:
     type: smartphone
     brand: Vivo
-    model: Y60s
+    model: X50 Pro
   os_family: Android
   browser_family: Chrome
 -
@@ -5764,7 +5764,7 @@
     brand: Leagoo
     model: Z5c
   os_family: Android
-  browser_family: Unknown
+  browser_family: Chrome
 -
   user_agent: com.google.android.apps.searchlite/63665 (Linux; U; Android 8.1.0; ru_UA; Ulefone_S1; Build/O11019; Cronet/90.0.4430.82)
   os:
@@ -6009,8 +6009,8 @@
     platform: ""
   client:
     type: browser
-    name: Chrome Webview
-    version: 59.0.3071.125
+    name: Yandex Browser
+    version: "6.10"
     engine: Blink
     engine_version: 59.0.3071.125
   device:
@@ -6018,7 +6018,7 @@
     brand: Prestigio
     model: Muze H3
   os_family: Android
-  browser_family: Chrome
+  browser_family: Unknown
 -
   user_agent: Mozilla/5.0 (Linux; Android 6.0; PSP3511DUO Build/MRA58K; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/54.0.2840.85 Mobile Safari/537.36 YandexSearch/7.21
   os:
@@ -6027,8 +6027,8 @@
     platform: ""
   client:
     type: browser
-    name: Chrome Webview
-    version: 54.0.2840.85
+    name: Yandex Browser
+    version: "7.21"
     engine: Blink
     engine_version: 54.0.2840.85
   device:
@@ -6036,7 +6036,7 @@
     brand: Prestigio
     model: Muze G3 LTE
   os_family: Android
-  browser_family: Chrome
+  browser_family: Unknown
 -
   user_agent: Mozilla/5.0 (Linux; Android 7.0; Philips S327 Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/56.0.2924.87 Mobile Safari/537.36 YandexSearch/5.40
   os:
@@ -6045,8 +6045,8 @@
     platform: ""
   client:
     type: browser
-    name: Chrome Webview
-    version: 56.0.2924.87
+    name: Yandex Browser
+    version: "5.40"
     engine: Blink
     engine_version: 56.0.2924.87
   device:
@@ -6054,7 +6054,7 @@
     brand: Philips
     model: S327
   os_family: Android
-  browser_family: Chrome
+  browser_family: Unknown
 -
   user_agent: Mozilla/5.0 (Linux; Android 8.0.0; ASUS_Z017DB Build/OPR1.170623.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.137 Mobile Safari/537.36 mCent/0.13.1127
   os:
@@ -6308,7 +6308,7 @@
   device:
     type: smartphone
     brand: Vivo
-    model: X21i
+    model: X21i A
   os_family: Android
   browser_family: Unknown
 -
@@ -6832,7 +6832,7 @@
   device:
     type: smartphone
     brand: Vivo
-    model: V17
+    model: S1 Pro
   os_family: Android
   browser_family: Unknown
 -
@@ -7086,7 +7086,7 @@
     brand: Vertex
     model: Impress Open
   os_family: Android
-  browser_family: Unknown
+  browser_family: Chrome
 -
   user_agent: Mozilla/5.0 (Linux; Android 6.0.1; MotoG3-TE) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.101 Mobile Safari/537.36
   os:
@@ -7122,7 +7122,7 @@
     brand: Motorola
     model: Moto X Play
   os_family: Android
-  browser_family: Unknown
+  browser_family: Chrome
 -
   user_agent: Mozilla/5.0 (Linux; Android 7.0; INTEX AQUA LIONS T1 LITE) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.73 Mobile Safari/537.36
   os:
@@ -8908,7 +8908,7 @@
   device:
     type: smartphone
     brand: Huawei
-    model: Honor Y6
+    model: Y6
   os_family: Android
   browser_family: Chrome
 -
@@ -8926,7 +8926,7 @@
   device:
     type: smartphone
     brand: Huawei
-    model: Honor Y6
+    model: Y6
   os_family: Android
   browser_family: Chrome
 -
@@ -8944,7 +8944,7 @@
   device:
     type: smartphone
     brand: Huawei
-    model: Honor Y6
+    model: Y6
   os_family: Android
   browser_family: Chrome
 -
@@ -8962,7 +8962,7 @@
   device:
     type: smartphone
     brand: Huawei
-    model: Honor Y6
+    model: Y6
   os_family: Android
   browser_family: Chrome
 -
