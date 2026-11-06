@@ -45,3 +45,7 @@ jobs:
       - name: Test
         run: |
           bundle exec rake test
+
+  # Committed secrets fail CI - same check as the shared CI workflows.
+  secrets:
+    uses: the-achieve-project/.github/.github/workflows/ci-secrets.yml@main
